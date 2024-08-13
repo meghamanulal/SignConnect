@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#" id="logout">Logout</a>
+    </nav>
+    <div class="container">
+        <h2>Upload your files</h2>
+        <p>File should be in .mp4 format</p>
+        <div class="upload-area" id="uploadfile" onclick="document.getElementById('fileInput').click()">
+            <img src="folder.png" alt="Upload Icon">
+            <p>Drag and drop your file or click to upload</p>
+        </div>
+        <input type="file" id="fileInput" accept="video/mp4" style="display: none;">
+    </div>
+
+    <script>
+        // Check if user is logged in
+        document.addEventListener("DOMContentLoaded", function() {
+            // Redirect to the login page if session is not set
+            if (!sessionStorage.getItem("loggedIn")) {
+                window.location.href = "signin.html";
+            }
+        });
+
+        // Handle the logout process
+        document.getElementById("logout").addEventListener("click", function() {
+            // Clear session storage
+            sessionStorage.clear();
+
+            // Redirect to the login page
+            window.location.href = "index.html";
+        });
+
+        // Prevent going back to the welcome screen after logout
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+        };
+
+        // Drag and Drop functionality
+        let dropArea = document.getElementById("uploadfile");
+        let fileInput = document.getElementById("fileInput");
+
+        dropArea.addEventListener("dragover", function(event) {
+            event.preventDefault();
+            dropArea.classList.add("dragover");
+        });
+
+        dropArea.addEventListener("dragleave", function() {
+            dropArea.classList.remove("dragover");
+        });
+
+        dropArea.addEventListener("drop", function(event) {
+            event.preventDefault();
+            dropArea.classList.remove("dragover");
+            let files = event.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        fileInput.addEventListener("change", function(event) {
+            let files = event.target.files;
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            let validTypes = ['video/mp4'];
+
+            let validFiles = Array.from(files).filter(file => validTypes.includes(file.type));
+            if (validFiles.length > 0) {
+                let fileNames = validFiles.map(file => file.name).join(", ");
+                dropArea.innerHTML = `<p style="color: green;">Uploaded: ${fileNames}</p>`;
+            } else {
+                dropArea.innerHTML = `<p style="color: red;">No valid files uploaded. Please upload files in .mp4 format.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
