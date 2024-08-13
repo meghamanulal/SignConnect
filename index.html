@@ -3,37 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SignConnect - Bridging Communication with Technology</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-form">
-            <h2>Login Form</h2>
-            <div class="tab">
-                <button id="login-tab" class="active" onclick="showLogin()">Login</button>
-                <button id="signup-tab" onclick="showSignup()">Signup</button>
-            </div>
-            <form id="login" class="form-content">
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
-                <p id="error-message" class="error-message"></p>
-                <a href="#" class="forgot-password">Forgot password?</a>
-                <button type="submit">Login</button>
-                <p class="signup-link">Not a member? <a href="#" onclick="showSignup()">Signup now</a></p>
-            </form>
-            <form id="signup" class="form-content hidden">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Signup</button>
-                <p class="signup-link">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
-            </form>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">SignConnect</h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#aim">Our Aim</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li class ="signup"><a href="signin.html">Sign Up</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-    <script src="script.js"></script>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h2>Bridging the Communication Gap</h2>
+            <p>Empowering the Deaf and Dumb community to connect with technology through SignConnect.</p>
+            <a href="signin.html" class="cta">Join Us Today</a>
+        </div>
+    </section>
+
+    <section id="aim" class="aim">
+        <div class="container">
+            <h2>Our Aim</h2>
+            <p>SignConnect is dedicated to breaking down barriers for the Deaf and Dumb community by providing easy access to technology through sign language recognition, translation services, and more. We strive to make communication and connection seamless and inclusive for everyone.</p>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature-list">
+                <div class="feature">
+                    <h3>Sign Language Recognition</h3>
+                    <p>Our advanced recognition technology converts sign language into text or speech, making communication easier than ever.</p>
+                </div>
+                <div class="feature">
+                    <h3>Video Chat with Interpretation</h3>
+                    <p>Connect with others through video chat with real-time sign language interpretation, breaking down communication barriers.</p>
+                </div>
+                <div class="feature">
+                    <h3>Learning Resources</h3>
+                    <p>Access a wide range of resources to learn sign language, improve your skills, and connect with others in the community.</p>
+                </div>
+                <div class="feature">
+                    <h3>Community Support</h3>
+                    <p>Join a vibrant community where you can share experiences, ask questions, and find support from others.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>1. Sign Up</h3>
+                    <p>Create your free account to start using SignConnect.</p>
+                </div>
+                <div class="step">
+                    <h3>2. Use Our Tools</h3>
+                    <p>Explore our tools, including sign language recognition, video chat, and learning resources.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Connect & Communicate</h3>
+                    <p>Start connecting with others, participate in conversations, and bridge communication gaps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="get-involved" class="get-involved">
+        <div class="container">
+            <h2>Get Involved</h2>
+            <p>Join our community and help us continue to build tools that make a difference. Whether you are a developer, a designer, or someone who wants to make a positive impact, there’s a place for you here.</p>
+            <br>
+            <a href="signin.html" class="cta">Join the Community</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SignConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
